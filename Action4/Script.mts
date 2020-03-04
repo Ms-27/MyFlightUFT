@@ -67,26 +67,42 @@ Set resultSheetObj = nothing
 
 
 ' Ecrit dans un fichier plat
+'' Défini une variable qui contient le chemin du fichier
+Dim FlatFilePath
+FlatFilePath = "C:\Users\recette\Documents\flatfile.txt"
 '' Instance de Filesystemobject
 Set fso = createobject("Scripting.FileSystemObject")
 '' Création du fichier plat, écrase le fichier si il existe déjà
-Set stream = fso.CreateTextFile("C:\Users\recette\Documents\flatfile.txt", true)
+Set stream = fso.CreateTextFile(FlatFilePath, true)
 	'' Ecrit dans le fichier
 	stream.WriteLine("Valeur de test	Nom: " & name & " - Etat de la commande: " & order_ref_test)
 	stream.WriteLine("Valeur de run		Nom: " & name & " - Etat de la commande: " & order_ref)
 	stream.Close
 
-'' Vide les instances
+' Vide les instances
 Set stream = nothing
-
-
-
-''' A revoir
-'Set file = fso.OpenTextFile("C:\Users\recette\Documents\flatfile.txt", ForReading, true)
-'Do while file.AtEndofStrean <> True
-'data = file.ReadLine()
-'msgbox data
-'Loop
-'
-
 Set fso = nothing
+
+
+
+' Lecture d'un fichier plat
+'' Instance de Filesystemobject
+Set fso = CreateObject("Scripting.FileSystemObject")
+
+'' Instancie l'objet fichier plat
+Set flatFile = fso.OpenTextFile(FlatFilePath, 1, True)
+
+'' Boucle qui renvoit chaque ligne puis son numéro de ligne dans des msgbox
+Do Until flatFile.AtEndOfStream
+	MsgBox flatFile.ReadLine
+	MsgBox flatFile.Line
+Loop
+'' Fermeture du fichier
+flatFile.Close
+
+' Vide les instances et variables
+Set fso = nothing
+Set flatFile = nothing
+FlatFilePath = Empty
+
+Dim a

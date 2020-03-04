@@ -10,7 +10,10 @@ password = parameter.Item("Password")
 
 ' Saisie du login, du mot de passe et validation
 WpfWindow("Micro Focus MyFlight Sample").WpfEdit("agentName").Set username @@ hightlight id_;_2064789248_;_script infofile_;_ZIP::ssf53.xml_;_
-WpfWindow("Micro Focus MyFlight Sample").WpfEdit("password").SetSecure password @@ hightlight id_;_2064787904_;_script infofile_;_ZIP::ssf54.xml_;_
+WpfWindow("Micro Focus MyFlight Sample").WpfEdit("password").SetSecure password
+
+' Checkpoint sur le bouton OK
+WpfWindow("Micro Focus MyFlight Sample").WpfButton("OK").Check CheckPoint("OK")
 WpfWindow("Micro Focus MyFlight Sample").WpfButton("OK").Click @@ hightlight id_;_2064790352_;_script infofile_;_ZIP::ssf55.xml_;_
 
 ' Vide les variables
