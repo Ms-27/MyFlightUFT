@@ -23,14 +23,22 @@ n=datatable.GetSheet(sheetname).GetRowCount
 For i = 1 To n Step 1
 	Datatable.SetCurrentRow(i)
 	WpfWindow("Micro Focus MyFlight Sample").WpfComboBox("fromCity").Select datatable("From")
-Next
+Next @@ hightlight id_;_2054110840_;_script infofile_;_ZIP::ssf2.xml_;_
 
-''' Reste à utiliser une méthode de datatable pour sélectionner Paris - ne fonctionne pas:
-'WpfWindow("Micro Focus MyFlight Sample").WpfComboBox("fromCity").Select datatable.Value("From", 6) @@ hightlight id_;_2054110840_;_script infofile_;_ZIP::ssf2.xml_;_
+
+
+' Sélectionne la ligne de la datatable qui contient la valeur qui nous intéresse
+DataTable.SetCurrentRow(5)
+' Store dans une variable la valeur issue de la datatable
+cityChoice = DataTable.Value("From", "Global")
+' Sélectionne la valeur dans le champ ville de départ de l'application
+WpfWindow("Micro Focus MyFlight Sample").WpfComboBox("fromCity").Select cityChoice
+
+' Sélectionne la ville d'arrivée puis valide
 WpfWindow("Micro Focus MyFlight Sample").WpfComboBox("toCity").Select "San Francisco" @@ hightlight id_;_2054113624_;_script infofile_;_ZIP::ssf4.xml_;_
 WpfWindow("Micro Focus MyFlight Sample").WpfImage("WpfImage").Click 9,17 @@ hightlight id_;_2054113816_;_script infofile_;_ZIP::ssf5.xml_;_
 
-	' Clique sur l'image du calendrier puis sélection de la date
+' Clique sur l'image du calendrier puis sélection de la date
 WpfWindow("Micro Focus MyFlight Sample").WpfImage("WpfImage").Click
 WpfWindow("Micro Focus MyFlight Sample").WpfCalendar("lu").SetDate "12-Mar-2020"
 
