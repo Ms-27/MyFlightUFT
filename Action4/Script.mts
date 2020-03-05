@@ -92,10 +92,9 @@ Set fso = CreateObject("Scripting.FileSystemObject")
 '' Instancie l'objet fichier plat
 Set flatFile = fso.OpenTextFile(FlatFilePath, 1, True)
 
-'' Boucle qui renvoit chaque ligne puis son numéro de ligne dans des msgbox
+'' Boucle qui renvoit chaque ligne puis son numéro de ligne dans le Output
 Do Until flatFile.AtEndOfStream
-	MsgBox flatFile.ReadLine
-	MsgBox flatFile.Line
+	print flatFile.ReadLine & " - line: " & flatFile.Line
 Loop
 '' Fermeture du fichier
 flatFile.Close
@@ -104,5 +103,3 @@ flatFile.Close
 Set fso = nothing
 Set flatFile = nothing
 FlatFilePath = Empty
-
-Dim a
