@@ -102,4 +102,4 @@ flatFile.Close
 ' Vide les instances et variables
 Set fso = nothing
 Set flatFile = nothing
-FlatFilePath = Empty
+flatFilePath = Empty
