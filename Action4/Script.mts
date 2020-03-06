@@ -13,6 +13,13 @@ Window_MyFlight.WpfObject("Order 91 completed").Click 52,23 @@ hightlight id_;_1
 Parameter.Item("Order_Message") = Window_MyFlight.WpfObject("Order 91 completed").GetROProperty("text")
 ' Affiche le paramètre de sortie dans l'Output
 print Parameter.Item("Order_Message")
+' Parse puis affiche le numero de commande
+order_number = Mid(Parameter.Item("Order_Message"),7,3)
+print order_number
+' Store dans un paramètre de sortie
+Parameter.Item("Order_Number") = order_number
+' Store dans la datatable
+DataTable.Value("num_order", "Order") = order_number
 
 ' Store dans deux variable les valeurs du message de validation
 ' d'un côté la valeur de run, de l'autre la valeur de test
@@ -24,7 +31,6 @@ order_ref_test = WpfWindow("Micro Focus MyFlight Sample").WpfObject("Order 91 co
 ' Rentre les données en sortie dans une feuille excel d'un fichier
 
 '' Variable avec le chemin du fichier dans lequel on va écrire
-Dim FilePath
 FilePath = "C:\Users\recette\Documents\Orderexp.xlsx"
 
 '' Instancie un objet de système de fichier
