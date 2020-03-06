@@ -17,6 +17,7 @@ FlightSearch=Action2\Script.mts
 SelectFlight=Action3\Script.mts
 Order=Action4\Script.mts
 Logout=Action5\Script.mts
+Principale=Action6\Script.mts
 
 [VuserProfiles]
 Profiles=Default Profile
@@ -82,3 +83,6 @@ Action4\ObjectRepository.bdb=
 Action5\Script.mts=
 Action5\Resource.mtr=
 Action5\ObjectRepository.bdb=
+Action6\Script.mts=
+Action6\Resource.mtr=
+Action6\ObjectRepository.bdb=
